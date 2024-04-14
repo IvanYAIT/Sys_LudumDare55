@@ -4,6 +4,8 @@ namespace Character
 {
     public class SoulCounter
     {
+        public static bool isEnoghSouls;
+
         private int _soul;
         private SoulView _view;
 
@@ -19,6 +21,11 @@ namespace Character
         {
             _soul++;
             _view.SetSoul(_soul);
+            if(_soul >= 5)
+            {
+                TargetPointer.isSoulsCollected = true;
+                isEnoghSouls = true;
+            }
         }
     }
 }

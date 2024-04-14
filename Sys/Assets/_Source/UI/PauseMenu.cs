@@ -18,6 +18,7 @@ namespace UI
             continueBtn.onClick.AddListener(Continue);
             settingsBtn.onClick.AddListener(ShowSettings);
             settingsBackBtn.onClick.AddListener(CloseSettings);
+            gameObject.SetActive(false);
         }
 
         private void Continue()

@@ -21,9 +21,15 @@ namespace Audio
             sfxScrollbar.value = PlayerPrefs.GetFloat(SFX_VOLUME, 1f);
             musicScrollbar.value = PlayerPrefs.GetFloat(MUSIC_VOLUME, 1f);
 
+            ChangeMaster(masterScrollbar.value);
+            ChangeMusic(musicScrollbar.value);
+            ChangeSFX(sfxScrollbar.value);
+
             masterScrollbar.onValueChanged.AddListener(ChangeMaster);
             sfxScrollbar.onValueChanged.AddListener(ChangeSFX);
             musicScrollbar.onValueChanged.AddListener(ChangeMusic);
+
+            gameObject.SetActive(false);
         }
 
         public void ChangeMaster(float value)
