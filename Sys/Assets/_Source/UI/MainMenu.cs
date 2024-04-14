@@ -1,50 +1,38 @@
-using Core;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class PauseMenu : MonoBehaviour
+    public class MainMenu : MonoBehaviour
     {
-        [SerializeField] private Button continueBtn;
+        [SerializeField] private Button playBtn;
         [SerializeField] private Button settingsBtn;
         [SerializeField] private Button settingsBackBtn;
-        [SerializeField] private Button leaveBtn;
 
         [SerializeField] private GameObject settings;
 
         void Start()
         {
-            continueBtn.onClick.AddListener(Continue);
+            playBtn.onClick.AddListener(Play);
             settingsBtn.onClick.AddListener(ShowSettings);
             settingsBackBtn.onClick.AddListener(CloseSettings);
-            leaveBtn.onClick.AddListener(Leave);
-            gameObject.SetActive(false);
         }
 
         private void OnDestroy()
         {
-            continueBtn.onClick.RemoveListener(Continue);
+            playBtn.onClick.RemoveListener(Play);
             settingsBtn.onClick.RemoveListener(ShowSettings);
             settingsBackBtn.onClick.RemoveListener(CloseSettings);
-            leaveBtn.onClick.RemoveListener(Leave);
         }
 
-        private void Continue()
-        {
-            gameObject.SetActive(false);
-            Game.UnPause();
-        }
+        private void Play()=>
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         private void ShowSettings() =>
             settings.SetActive(true);
 
         private void CloseSettings() =>
             settings.SetActive(false);
-
-        public void Leave()=>
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-
     }
 }
