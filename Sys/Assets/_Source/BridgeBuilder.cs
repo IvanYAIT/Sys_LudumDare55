@@ -6,7 +6,7 @@ using UnityEngine;
 public class BridgeBuilder : MonoBehaviour
 {
     [SerializeField] private LayerMask playerLayerMask;
-    [SerializeField] private TextMeshProUGUI hint;
+    [SerializeField] private GameObject hint;
     [SerializeField] private GameObject bridge;
     [SerializeField] private Transform bridgeNormalPos;
     [SerializeField] private float bridgeSpeed;
@@ -35,7 +35,7 @@ public class BridgeBuilder : MonoBehaviour
         {
             if (SoulCounter.isEnoghSouls)
             {
-                hint.gameObject.SetActive(true);
+                hint.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.F))
                     SummonBridge();
             }        }
@@ -45,7 +45,7 @@ public class BridgeBuilder : MonoBehaviour
     {
         if(other.gameObject.layer == _playerLayer)
         {
-            hint.gameObject.SetActive(false);
+            hint.SetActive(false);
         }
     }
 

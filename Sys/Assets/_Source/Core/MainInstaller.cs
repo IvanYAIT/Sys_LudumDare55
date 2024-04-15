@@ -15,9 +15,11 @@ namespace Core
         [SerializeField] private PauseMenu pauseMenu;
         [SerializeField] private TargetPointer targetPointer;
         [SerializeField] private AudioPlayer audioPlayer;
+        [SerializeField] private CharacterAnimationController characterAnimationController;
 
         public override void InstallBindings()
         {
+            Container.Bind<CharacterAnimationController>().FromInstance(characterAnimationController).AsSingle().NonLazy();
             Container.Bind<CharacterData>().FromInstance(characterData).AsSingle().NonLazy();
             Container.Bind<PickUpData>().FromInstance(pickUpData).AsSingle().NonLazy();
             Container.Bind<SoulView>().FromInstance(soulView).AsSingle().NonLazy();

@@ -11,12 +11,22 @@ namespace UI
         [SerializeField] private Button settingsBackBtn;
 
         [SerializeField] private GameObject settings;
+        [SerializeField] private GameObject tutorial;
 
         void Start()
         {
             playBtn.onClick.AddListener(Play);
             settingsBtn.onClick.AddListener(ShowSettings);
             settingsBackBtn.onClick.AddListener(CloseSettings);
+        }
+
+        private void Update()
+        {
+            if (tutorial.activeInHierarchy)
+            {
+                if(Input.anyKeyDown)
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
 
         private void OnDestroy()
@@ -27,7 +37,7 @@ namespace UI
         }
 
         private void Play()=>
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            tutorial.SetActive(true);
 
         private void ShowSettings() =>
             settings.SetActive(true);

@@ -16,3 +16,6 @@ MonoBehaviour:
   soulLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  speedSoulLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024

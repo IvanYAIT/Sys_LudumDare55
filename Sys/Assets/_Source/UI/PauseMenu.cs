@@ -23,6 +23,14 @@ namespace UI
             gameObject.SetActive(false);
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                Continue();
+            }
+        }
+
         private void OnDestroy()
         {
             continueBtn.onClick.RemoveListener(Continue);
@@ -34,6 +42,7 @@ namespace UI
         private void Continue()
         {
             gameObject.SetActive(false);
+            CloseSettings();
             Game.UnPause();
         }
 

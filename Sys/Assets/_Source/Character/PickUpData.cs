@@ -7,8 +7,10 @@ namespace Character
     {
         [SerializeField] private float distanceToPickUp;
         [SerializeField] private LayerMask soulLayerMask;
+        [SerializeField] private LayerMask speedSoulLayerMask;
 
         public float DistanceToPickUp => distanceToPickUp;
         public LayerMask SoulLayerMask => soulLayerMask;
+        public LayerMask SpeedSoulLayerMask => speedSoulLayerMask;
     }
 }
