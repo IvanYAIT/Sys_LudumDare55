@@ -22,7 +22,7 @@ public class End : MonoBehaviour
 
     void Start()
     {
-        timerMinuts = PlayerPrefs.GetInt(DIFFICULTY);
+        timerMinuts = PlayerPrefs.GetInt(DIFFICULTY, 6);
         _playerLayer = (int)Mathf.Log(playerLayersMask.value, 2);
         _timer = timerMinuts * 60;
     }
