@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bridge3
+  m_Name: Bridge2 1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _EMISSION
@@ -76,6 +76,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.7264151, g: 0.39404595, b: 0.39404595, a: 1}
-    - _EmissionColor: {r: 1.4980392, g: 0.09411765, b: 0.1882353, a: 1}
+    - _Color: {r: 0.8113208, g: 0.43244928, b: 0.6560912, a: 1}
+    - _EmissionColor: {r: 0.7638715, g: 2.2183666, b: 2.0739486, a: 1}
   m_BuildTextureStacks: []
