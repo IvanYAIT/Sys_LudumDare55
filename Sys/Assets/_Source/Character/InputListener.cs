@@ -66,11 +66,12 @@ namespace Character
                     if (Physics.CheckSphere(_characterData.FeetTransform.position, 0.1f, _characterData.FloorMask))
                         _action.Jump(_characterData.Rb, _characterData.JumpForce);
                 }
-            }
-            if (Input.GetKeyDown(KeyCode.Tab))
-            {
-                Game.Pause();
-                _pauseMenu.gameObject.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    Game.Pause();
+                    _pauseMenu.gameObject.SetActive(true);
+                }
             }
         }
 

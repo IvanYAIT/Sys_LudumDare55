@@ -28,9 +28,13 @@ namespace Character
             }
 
             if (axis == Vector3.zero)
+            {
                 rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                _animController.Walk(false);
+                _animController.Run(false);
+            }
 
-            if(!isRunning)
+            if (!isRunning)
                 _animController.Walk(axis != Vector3.zero);
             else
                 _animController.Run(axis != Vector3.zero);
