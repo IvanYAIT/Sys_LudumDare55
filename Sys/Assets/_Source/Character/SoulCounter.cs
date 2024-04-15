@@ -1,3 +1,4 @@
+using UI;
 using Zenject;
 
 namespace Character
@@ -8,11 +9,13 @@ namespace Character
 
         private int _soul;
         private SoulView _view;
+        private TaskList _taskList;
 
         [Inject]
-        public SoulCounter(SoulView view)
+        public SoulCounter(SoulView view, TaskList taskList)
         {
             _view = view;
+            _taskList = taskList;
             _soul = 0;
             _view.SetSoul(_soul);
         }
@@ -25,6 +28,7 @@ namespace Character
             {
                 TargetPointer.isSoulsCollected = true;
                 isEnoghSouls = true;
+                _taskList.NextTask();
             }
         }
     }

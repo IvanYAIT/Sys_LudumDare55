@@ -1,11 +1,15 @@
 using Core;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class End : MonoBehaviour
 {
     [SerializeField] private GameObject endScreen;
+    [SerializeField] private GameObject blackScreen;
     [SerializeField] private LayerMask playerLayersMask;
+    [SerializeField] private AudioSource audioSource;
 
     private int _playerLayer;
 
@@ -16,6 +20,13 @@ public class End : MonoBehaviour
 
     void Update()
     {
+        if (blackScreen.activeInHierarchy)
+        {
+            Color color = blackScreen.GetComponent<Image>().color;
+            color.a += Time.deltaTime * 0.7f;
+            blackScreen.GetComponent<Image>().color = color;
+        }
+            
         if (endScreen.activeInHierarchy)
         {
             if (Input.anyKeyDown)
@@ -25,11 +36,18 @@ public class End : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(gameObject);
         if (other.gameObject.layer == _playerLayer)
         {
-            endScreen.SetActive(true);
-            Game.Pause();
+            StartCoroutine(BlackScreen());
         }
+    }
+
+    private IEnumerator BlackScreen()
+    {
+        blackScreen.SetActive(true);
+        yield return new WaitForSeconds(3);
+        Game.Pause();
+        endScreen.SetActive(true);
+        audioSource.Play();
     }
 }

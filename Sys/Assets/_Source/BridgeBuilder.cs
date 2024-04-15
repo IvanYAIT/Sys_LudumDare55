@@ -1,7 +1,8 @@
 using Character;
 using System;
-using TMPro;
+using UI;
 using UnityEngine;
+using Zenject;
 
 public class BridgeBuilder : MonoBehaviour
 {
@@ -14,6 +15,13 @@ public class BridgeBuilder : MonoBehaviour
     private int _playerLayer;
     private bool isBrigeMoving;
     private float _time;
+    private TaskList _taskList;
+
+    [Inject]
+    public void Construct(TaskList taskList)
+    {
+        _taskList = taskList;
+    }
 
     void Start()
     {
@@ -37,8 +45,12 @@ public class BridgeBuilder : MonoBehaviour
             {
                 hint.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.F))
+                {
                     SummonBridge();
-            }        }
+                    _taskList.NextTask();
+                }
+            }        
+        }
     }
 
     private void OnTriggerExit(Collider other)
