@@ -22,6 +22,7 @@ namespace UI
             settingsBtn.onClick.AddListener(ShowSettings);
             settingsBackBtn.onClick.AddListener(CloseSettings);
             difficultyBar.onValueChanged.AddListener(ChangeDifficulty);
+            PlayerPrefs.SetInt(DIFFICULTY, 10);
         }
 
         private void Update()

@@ -11,6 +11,8 @@ public class BridgeBuilder : MonoBehaviour
     [SerializeField] private GameObject bridge;
     [SerializeField] private Transform bridgeNormalPos;
     [SerializeField] private float bridgeSpeed;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject blockingWall;
 
     private int _playerLayer;
     private bool isBrigeMoving;
@@ -65,5 +67,8 @@ public class BridgeBuilder : MonoBehaviour
     {
         bridge.gameObject.SetActive(true);
         isBrigeMoving = true;
+        blockingWall.SetActive(false);
+        audioSource.Play();
+        End.StopTimer = true;
     }
 }
